@@ -1,0 +1,16 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+<l:pane width="3" title="東京電力 電気使用状況">
+<tr>
+  <th class="pane">日時</th>
+  <th class="pane">当日(万kW)</th>
+  <th class="pane">前日(万kW)</th>
+</tr>
+<j:forEach var="usage" items="${it.usages}">
+  <tr>
+    <td align="center" class="pane"><i:formatDate pattern="M/dd HH:mm" value="${usage.date}"/></td>
+    <td class="pane" align="right">${usage.today}</td>
+    <td class="pane" align="right">${usage.yesterday}</td>
+  </tr>
+</j:forEach>
+</l:pane>
+</j:jelly>
